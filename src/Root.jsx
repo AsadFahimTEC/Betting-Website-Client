@@ -11,7 +11,7 @@ const Root = () => {
       </div>
 
       
-      <Footer></Footer>
+      {/* <Footer></Footer> */}
     </div>
   );
 };
