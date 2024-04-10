@@ -1,21 +1,35 @@
-import { useState, useEffect } from "react";
-
+import { useEffect, useState } from "react";
+import { AiOutlineLike } from "react-icons/ai";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
+import { FaChevronUp } from "react-icons/fa";
+import { FaChevronDown } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { FaHome } from "react-icons/fa";
+import { FaAngleRight } from "react-icons/fa6";
+import { IoFootballOutline } from "react-icons/io5";
+import { GiTrophyCup } from "react-icons/gi";
 
 import "swiper/css";
 
 import "swiper/css/scrollbar";
 
 const Banner = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleCollapse = () => {
+    setIsOpen(!isOpen);
+  };
+
   const images = [
-    "https://daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg",
-    "https://daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.jpg",
-    "https://daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.jpg",
-    "https://daisyui.com/images/stock/photo-1494253109108-2e30c049369b.jpg",
-    "https://daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.jpg",
-    "https://daisyui.com/images/stock/photo-1559181567-c3190ca9959b.jpg",
-    "https://daisyui.com/images/stock/photo-1601004890684-d8cbf643f5f2.jpg",
+    "https://i.ibb.co/Q82tWcK/1xbet-vignette-cricket.png",
+    "https://i.ibb.co/JFjR3kx/images-2.jpg",
+    "https://i.ibb.co/FK5cwcc/images-3.jpg",
+    "https://i.ibb.co/px6Hkj7/images-1.jpg",
+    "https://i.ibb.co/Q82tWcK/1xbet-vignette-cricket.png",
+    "https://i.ibb.co/JFjR3kx/images-2.jpg",
+    "https://i.ibb.co/FK5cwcc/images-3.jpg",
+    "https://i.ibb.co/px6Hkj7/images-1.jpg",
+    "https://i.ibb.co/9T8sF9S/images-4.jpg",
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -39,9 +53,14 @@ const Banner = () => {
     <div className=" mt-28">
       <div className="flex ">
         {/* Left site */}
-        <div className=" fixed z-50 group w-[50px] h-screen bg-[#567ae2] overflow-hidden transition-all duration-300 hover:w-[200px]">
+        <div className="fixed  z-50 group w-[45px] h-screen bg-[#567ae2] overflow-hidden transition-all duration-300 hover:w-[200px]">
           <div className=" text-white ml-2">
-            <h2>hello friend</h2>
+            <div className=" flex items-center gap-5 bg-[#276aa5] p-2 rounded">
+              <span>
+                <AiOutlineLike className=" text-2xl" />
+              </span>
+              <span>Recommended</span>
+            </div>
             <h2>hello</h2>
             <h2>hello</h2>
             <h2>hello</h2>
@@ -54,26 +73,26 @@ const Banner = () => {
         </div>
 
         {/* middle site */}
-        <div className="relative flex-1 ml-16 w-[400px]">
+        <div className="relative flex-1 ml-16 w-[350px] overflow-y-auto h-[440px]">
           <img
             src={images[currentImageIndex]}
             alt={`Banner ${currentImageIndex + 1}`}
-            className="w-[788px] h-[400px]"
+            className="w-[772px] h-[400px]"
           />
           <button
             onClick={goToPrevImage}
-            className="absolute top-1/3 left-4 transform -translate-y-1/2 bg-gray-800 text-white px-2 py-1 rounded-md"
+            className="absolute top-48 left-4 transform -translate-y-1/2 bg-gray-800 text-white px-2 py-1 rounded-md"
           >
             Prev
           </button>
           <button
             onClick={goToNextImage}
-            className="absolute top-1/3 right-[380px] transform -translate-y-1/2 bg-gray-800 text-white px-2 py-1 rounded-md"
+            className="absolute top-48 right-4 transform -translate-y-1/2 bg-gray-800 text-white px-2 py-1 rounded-md"
           >
             Next
           </button>
           <div>
-            <div className=" mr-[365px]  mt-3">
+            <div className="   mt-3">
               <Swiper
                 // install Swiper modules
                 modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -133,10 +152,110 @@ const Banner = () => {
               </Swiper>
             </div>
           </div>
+
+          <div className=" mt-4">
+            <div className="navbar bg-[#276aa5] rounded">
+              <div className="">
+                <div className="dropdown">
+                  <div
+                    tabIndex={0}
+                    role="button"
+                    className="btn btn-ghost lg:hidden"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M4 6h16M4 12h8m-8 6h16"
+                      />
+                    </svg>
+                  </div>
+                  <ul
+                    tabIndex={0}
+                    className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+                  >
+                    <li>
+                      <a>Item 1</a>
+                    </li>
+                    <li>
+                      <a>Parent</a>
+                      <ul className="p-2">
+                        <li>
+                          <a>Submenu 1</a>
+                        </li>
+                        <li>
+                          <a>Submenu 2</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a>Item 3</a>
+                    </li>
+                  </ul>
+                </div>
+                <div className=" flex items-center gap-2 text-white">
+                  <span>
+                    {" "}
+                    <FaHome />
+                  </span>
+                  <span>
+                    <FaAngleRight />
+                  </span>
+                  <span>
+                    <IoFootballOutline />
+                  </span>
+                  <span>
+                    <FaAngleRight />
+                  </span>
+                  <span>
+                    <GiTrophyCup />
+                  </span>
+                </div>
+              </div>
+              <div className=" hidden lg:flex">
+                <ul className="menu menu-horizontal text-white  px-1 gap-2 font-medium w-[430px]">
+                  <li>Matches</li>
+
+                  <li>Recommended</li>
+                  <li>Upcoming events</li>
+                  <li>1st period</li>
+                  <li>2st period</li>
+                </ul>
+              </div>
+              <div className="navbar-end">
+                <label className="input input-bordered flex items-center  gap-2">
+                  <input
+                    type="text"
+                    className="grow w-36 "
+                    placeholder="Search by match"
+                  />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 16 16"
+                    fill="currentColor"
+                    className="w-4 h-4 opacity-70"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </label>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* right site */}
-        <div className=" w-[350px] ml-4 rounded-sm overflow-y-auto h-[440px] fixed right-0 z-50 mb-44">
+        <div className=" w-[350px] ml-4 rounded-sm overflow-y-auto h-[440px]  right-0 z-10 mb-44">
           <div>
             <div className="bg-[#e9eef2] p-4 pb-12 py-6">
               <h2 className="text-lg font-bold mb-4 text-center">
@@ -150,10 +269,27 @@ const Banner = () => {
                   By Phone
                 </button>
               </div>
-
-              <div className=" mt-4 bg-white px-4 p-2 rounded">
-                <h2>Bangladesh</h2>
+              <div
+                tabIndex={0}
+                className="collapse collapse-arrow border rounded border-base-300 bg-white mt-4"
+              >
+                <div
+                  className="collapse-plus p-2 flex justify-between items-center"
+                  onClick={toggleCollapse}
+                >
+                  <h2>Bangladesh</h2>
+                  {isOpen ? <FaChevronUp /> : <FaChevronDown />}
+                </div>
+                {isOpen && (
+                  <div className="collapse-content">
+                    <p>
+                      tabIndex={0} attribute is necessary to make the div
+                      focusable
+                    </p>
+                  </div>
+                )}
               </div>
+
               <div className=" mt-4 bg-white px-4 p-2 rounded">
                 <h2>Bangladesh taka (BDT)</h2>
               </div>
@@ -198,6 +334,7 @@ const Banner = () => {
               <div className=" mt-4 bg-white px-4 p-2 rounded">
                 <h2>Bangladesh</h2>
               </div>
+
               <div className=" mt-4 bg-white px-4 p-2 rounded">
                 <h2>Bangladesh taka (BDT)</h2>
               </div>
