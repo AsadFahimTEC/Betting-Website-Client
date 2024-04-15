@@ -9,19 +9,22 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
+  "type": "commonjs",
   "dependencies": {
+    "esbuild": "^0.20.2",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.1",
+    "rollup": "^4.14.1",
     "sort-by": "^0.0.2",
     "swiper": "^11.1.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
-    "@vitejs/plugin-react": "^4.0.3",
+    "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "^10.4.16",
     "daisyui": "^3.9.2",
     "eslint": "^8.45.0",
@@ -30,6 +33,6 @@
     "eslint-plugin-react-refresh": "^0.4.3",
     "postcss": "^8.4.31",
     "tailwindcss": "^3.3.3",
-    "vite": "^4.5.3"
+    "vite": "^5.2.8"
   }
 }
